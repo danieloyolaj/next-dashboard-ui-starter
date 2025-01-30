@@ -1,10 +1,13 @@
+import Link from "next/link";
+import Image from "next/image";
+
 const menuItems = [
   {
     title: "MENU",
     items: [
       {
         icon: "/home.png",
-        label: "Home",
+        label: "Inicio",
         href: "/",
         visible: ["admin", "teacher", "student", "parent"],
       },
@@ -89,7 +92,7 @@ const menuItems = [
     ],
   },
   {
-    title: "OTHER",
+    title: "OTROS",
     items: [
       {
         icon: "/profile.png",
@@ -112,3 +115,30 @@ const menuItems = [
     ],
   },
 ];
+
+const Menu = () => {
+  return (
+    <div className="mt-4 text-sm">
+
+      {/**This loops and shows all the items in the menu */}
+      {menuItems.map(i => (
+        <div className="flex flex-col gap-2" key={i.title}>
+          <span className="hidden lg:block text-gray-400 font-light my-4">
+            {i.title}
+          </span>
+          {i.items.map(item => (
+            <Link 
+              href={item.href} 
+              key={item.label} 
+              className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2">
+              <Image src={item.icon} alt="menu-icon" width={20} height={20} />
+              <span className="hidden lg:block">{item.label}</span> {/**this is the label of the menu */}
+            </Link>
+          ))}
+        </div>
+      ) )}
+    </div>
+  )
+}
+
+export default Menu
