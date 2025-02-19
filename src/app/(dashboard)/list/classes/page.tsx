@@ -55,9 +55,9 @@ const ClassListPage = () => {
           {/* This button below only shows if you are an admin */}
           {role === 'admin' && (
             <>
-            <FormModal table="class" type="update" data={item}/>
-            <FormModal table="class" type="delete" id={item.id}/>
-          </>
+              <FormModal table="class" type="update" data={item}/>
+              <FormModal table="class" type="delete" id={item.id}/>
+            </>
           //   <button className="w-7 h-7 flex items-center justify-center rounded-full bg-lamaPurple">
           //   <Image src="/delete.png" alt="view-info" width={16} height={16} />
           // </button>
